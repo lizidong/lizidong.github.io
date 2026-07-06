@@ -19,28 +19,28 @@
 <body>
   <main>
     <h1>Privacy Policy for TOEICAICoach</h1>
-    <p class="updated">Last updated: July 1, 2026</p>
+    <p class="updated">Last updated: July 6, 2026</p>
 
-    <p>TOEICAICoach is a TOEIC-style practice application for English learners. This Privacy Policy explains how the app handles information when you use the app.</p>
+    <p>TOEICAICoach is a TOEIC-style practice application for English learners, available or planned for iOS and Android. This Privacy Policy applies to both mobile versions unless a platform-specific difference is stated below.</p>
 
     <h2>1. Information We Handle</h2>
     <p>The app does not require account registration and does not ask you to enter your name, email address, phone number, contacts, photos, location, microphone, camera, or health data.</p>
     <p>The app may handle the following information:</p>
     <ul>
-      <li>TOEIC part selection, such as Part 5, Part 6, or Part 7.</li>
-      <li>The number of questions requested.</li>
-      <li>Practice questions temporarily stored on your device so the app can show generated or cached questions smoothly.</li>
+      <li>Learning activity stored locally on your device, including TOEIC Parts 1–7 selections, answers, practice statistics, mistake-review records, language preference, and onboarding status.</li>
+      <li>Practice and mock-exam questions cached locally so the app can work smoothly.</li>
+      <li>Question-generation and translation request data, including the selected TOEIC part, requested question count, explanation language, and question text, options, or explanations that require processing.</li>
       <li>Technical information automatically processed by third-party services, such as IP address, device or advertising identifiers, app interaction data, crash or diagnostic information, and network request metadata.</li>
     </ul>
 
     <h2>2. AI Question Generation</h2>
-    <p>When you request new practice questions, the app sends a request to our Cloudflare Worker backend. The backend sends a prompt to an AI service to generate TOEIC-style practice questions.</p>
-    <p>The app does not intentionally send your name, email address, precise location, contacts, photos, or other sensitive personal information to the AI service. You should not enter personal or confidential information into the app.</p>
+    <p>When the app requests new practice questions or translations, it sends the required TOEIC part, language, and question content to our Cloudflare Worker backend. The backend uses DeepSeek's API to generate TOEIC-style questions or translate explanations.</p>
+    <p>The app does not provide a free-text field for personal information and does not intentionally send your name, email address, precise location, contacts, photos, or other sensitive personal information to the AI service.</p>
     <p>Third-party providers involved in question generation may process request metadata as part of providing and securing their services.</p>
 
     <h2>3. Advertising</h2>
     <p>The app uses Google AdMob to display ads. AdMob and related Google services may collect or receive information from the app and your device to provide ads, measure ad performance, prevent fraud, and comply with applicable laws.</p>
-    <p>Depending on your region and device settings, ads may be personalized or non-personalized. Where required, consent or privacy choices may be requested or managed through Apple, Google, or device-level privacy controls.</p>
+    <p>Depending on your region, consent choices, and device settings, ads may be personalized, non-personalized, or limited. The Google User Messaging Platform (UMP) may be used to obtain and manage consent. On iOS, App Tracking Transparency may also request permission before tracking; on Android, advertising-ID controls are available in system settings.</p>
     <p>For more information, please review Google's privacy information: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
 
     <h2>4. Third-Party Services</h2>
@@ -48,37 +48,44 @@
     <ul>
       <li>Google AdMob: advertising and ad measurement.</li>
       <li>Cloudflare Workers: backend hosting, routing, security, and request processing.</li>
-      <li>AI question generation service: TOEIC-style practice question generation.</li>
-      <li>Apple services: App Store distribution, device privacy controls, and system diagnostics where applicable.</li>
+      <li>DeepSeek API: TOEIC-style question generation and explanation translation.</li>
+      <li>Apple services on iOS: App Store distribution, device privacy controls, and system diagnostics where applicable.</li>
+      <li>Google services on Android: Google Play distribution and platform services where applicable.</li>
     </ul>
     <p>These third parties may process data according to their own privacy policies and terms.</p>
 
     <h2>5. Data Storage</h2>
-    <p>Practice questions may be cached locally on your device. You can remove locally stored app data by deleting the app from your device.</p>
-    <p>The backend does not require user accounts. Server and service providers may keep logs for security, abuse prevention, debugging, analytics, and legal compliance.</p>
+    <p>Questions, answers, practice statistics, mistake-review records, and preferences may be stored locally on your device. You can remove this local data by deleting the app; Android may also allow you to clear the app's storage in system settings.</p>
+    <p>The backend does not require user accounts. For abuse prevention, the backend temporarily stores a SHA-256 hash derived from the request IP address in Cloudflare KV for approximately 16 minutes. Cloudflare, Google, DeepSeek, Apple, and other service providers may retain their own logs according to their policies for security, fraud prevention, diagnostics, analytics, and legal compliance.</p>
 
-    <h2>6. Data Sharing</h2>
+    <h2>6. Security</h2>
+    <p>Network requests are transmitted using HTTPS/TLS. We use access controls and rate limiting intended to protect the service. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+    <h2>7. Data Sharing</h2>
     <p>We do not sell personal information. Information may be shared with third-party service providers only as needed to operate the app, generate practice questions, display ads, maintain security, prevent abuse, and comply with legal obligations.</p>
 
-    <h2>7. Children</h2>
-    <p>TOEICAICoach is intended for general English-learning use and is not directed specifically to children. The app is not intended to be submitted under Apple's Kids Category. Users should use the app under the supervision of a parent or guardian where required by local law.</p>
+    <h2>8. Children</h2>
+    <p>TOEICAICoach is intended for general English-learning use and is not directed specifically to children. The app is not intended for Apple's Kids Category or Google Play's Designed for Families program. Users should use the app under the supervision of a parent or guardian where required by local law.</p>
 
-    <h2>8. TOEIC Trademark Notice</h2>
+    <h2>9. TOEIC Trademark Notice</h2>
     <p>TOEIC is a trademark of ETS. TOEICAICoach is an independent study tool and is not affiliated with, endorsed by, or sponsored by ETS or the TOEIC program.</p>
 
-    <h2>9. Your Choices</h2>
+    <h2>10. Your Choices</h2>
     <p>You can:</p>
     <ul>
       <li>Delete the app to remove locally stored app data.</li>
-      <li>Use iOS privacy settings to limit tracking or reset advertising-related settings.</li>
-      <li>Manage ad privacy choices through Google or device-level privacy controls where available.</li>
+      <li>Use iOS tracking controls or Android advertising-ID controls where available.</li>
+      <li>Use the app's advertising privacy settings when Google UMP requires a privacy-options entry point.</li>
     </ul>
 
-    <h2>10. Changes to This Policy</h2>
+    <h2>11. International Processing</h2>
+    <p>Third-party providers may process information in countries or regions other than where you live, subject to their safeguards and applicable law.</p>
+
+    <h2>12. Changes to This Policy</h2>
     <p>We may update this Privacy Policy when the app, backend, third-party services, or legal requirements change. The updated version will be identified by the latest updated date.</p>
 
-    <h2>11. Contact</h2>
-    <p>For privacy questions, contact the developer through the support contact listed on the App Store product page or the support URL configured in App Store Connect.</p>
+    <h2>13. Contact</h2>
+    <p>For privacy questions, contact the TOEICAICoach developer through <a href="https://github.com/lizidong/TOEICAICoach/issues">the TOEICAICoach support issue page</a>. Do not include personal, confidential, or sensitive information in a public issue.</p>
   </main>
 </body>
 </html>
