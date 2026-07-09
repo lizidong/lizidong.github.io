@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Coach | Learn Languages Smarter with AI</title>
+  <meta name="description" content="AI-powered language learning apps by Jeff Li. TOEIC AI Coach is available on the App Store. Eiken, HSK, and TOPIK AI Coach are coming soon." />
+  <style>
+    :root {
+      --blue: #0b6bff;
+      --blue-dark: #061b4d;
+      --text: #17213a;
+      --muted: #58647a;
+      --soft-blue: #eef6ff;
+      --card: #ffffff;
+      --line: #e7edf6;
+      --shadow: 0 18px 45px rgba(15, 42, 85, 0.10);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 30px; color: var(--blue-dark); }
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      background: linear-gradient(135deg, #0b6bff, #0041b8);
+      box-shadow: 0 8px 20px rgba(11,107,255,.25);
+    }
+
+    .menu { display: flex; gap: 30px; font-weight: 700; font-size: 14px; color: var(--blue-dark); }
+    .menu a:hover { color: var(--blue); }
+
+    .hero {
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 75% 25%, rgba(11,107,255,.12), transparent 30%),
+        linear-gradient(135deg, #fff 0%, #f6fbff 48%, #eaf5ff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 60px 0 70px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(48px, 7vw, 78px);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: var(--blue-dark);
+    }
+
+    .hero h2 {
+      margin: 0 0 16px;
+      font-size: clamp(26px, 4vw, 38px);
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: var(--blue);
+    }
+
+    .hero p { max-width: 460px; font-size: 19px; color: #30405f; margin: 0 0 22px; }
+    .checklist { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: center; gap: 10px; font-size: 17px; color: #263653; }
+    .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      color: #fff;
+      font-size: 12px;
+      background: var(--blue);
+      font-weight: 900;
+      flex: none;
+    }
+
+    .hero-art { position: relative; height: 500px; display: grid; place-items: center; }
+    .blob {
+      position: absolute;
+      width: 520px;
+      height: 360px;
+      background: linear-gradient(135deg, rgba(102,192,255,.28), rgba(135,117,255,.18));
+      border-radius: 48% 52% 38% 62% / 52% 42% 58% 48%;
+      bottom: 20px;
+      right: -90px;
+    }
+
+    .phone {
+      position: relative;
+      width: 250px;
+      height: 500px;
+      border: 12px solid #121722;
+      border-radius: 42px;
+      background: #fff;
+      transform: rotate(8deg);
+      box-shadow: 0 28px 70px rgba(0,0,0,.25);
+      padding: 38px 20px 20px;
+      z-index: 2;
+    }
+
+    .phone:before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92px;
+      height: 24px;
+      background: #121722;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .phone h3 { margin: 0; font-size: 18px; color: #11182a; }
+    .phone small { color: #606c80; font-weight: 600; }
+    .phone-card {
+      margin-top: 18px;
+      background: #fff;
+      border: 1px solid #edf1f7;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 12px 28px rgba(16, 41, 80, .10);
+    }
+    .phone-card b { display: block; margin-top: 6px; font-size: 18px; color: #11182a; }
+    .phone-button { margin-top: 14px; background: var(--blue); color: #fff; text-align: center; border-radius: 10px; padding: 11px; font-weight: 800; font-size: 13px; }
+    .bar { height: 8px; border-radius: 999px; background: #d8e7ff; margin-top: 10px; overflow: hidden; }
+    .bar span { display: block; height: 100%; width: 85%; background: var(--blue); border-radius: 999px; }
+
+    .float {
+      position: absolute;
+      z-index: 3;
+      width: 76px;
+      height: 76px;
+      border-radius: 19px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 32px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.16);
+    }
+    .float.one { background: linear-gradient(135deg,#8764ff,#6253dd); left: 50px; top: 95px; }
+    .float.two { background: linear-gradient(135deg,#1ccca8,#25a983); left: 0; bottom: 125px; }
+    .float.three { background: linear-gradient(135deg,#35b8ff,#0b6bff); right: 0; top: 210px; }
+
+    section { padding: 46px 0; }
+    .section-title { text-align: center; font-size: 34px; line-height: 1.1; margin: 0 0 28px; color: var(--blue-dark); letter-spacing: -0.04em; }
+
+    .apps {
+      background: linear-gradient(180deg, #fff 0%, #f8fbff 100%);
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px 22px;
+      text-align: center;
+    }
+    .app-icon {
+      width: 112px;
+      height: 112px;
+      border-radius: 28px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.05;
+      box-shadow: inset 0 -12px 24px rgba(0,0,0,.12), 0 14px 24px rgba(8,35,80,.12);
+    }
+    .toeic { background: linear-gradient(135deg, #0b6bff, #003caa); }
+    .eiken { background: linear-gradient(135deg, #ff354e, #b70820); font-size: 56px; }
+    .hsk { background: linear-gradient(135deg, #f7313d, #b00015); }
+    .topik { background: linear-gradient(135deg, #8740e8, #3e1c89); }
+    .card h3 { margin: 0 0 10px; color: var(--blue-dark); font-size: 22px; }
+    .card p { margin: 0; color: #34405a; font-size: 15px; min-height: 48px; }
+
+    .store-btn, .coming {
+      margin-top: 22px;
+      min-height: 48px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      font-weight: 800;
+    }
+    .store-btn { background: #050505; color: #fff; gap: 8px; }
+    .store-btn span { font-size: 12px; line-height: 1.05; text-align: left; }
+    .store-btn b { font-size: 19px; display: block; }
+    .coming { background: #eef6ff; color: var(--blue); }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      background: #fff;
+      border-radius: 20px;
+    }
+    .feature {
+      text-align: center;
+      padding: 20px 28px;
+      border-right: 1px solid var(--line);
+    }
+    .feature:last-child { border-right: 0; }
+    .feature .icon { font-size: 46px; margin-bottom: 10px; color: var(--blue); }
+    .feature h3 { margin: 0 0 8px; color: var(--blue-dark); font-size: 18px; }
+    .feature p { margin: 0; color: #3e4a62; font-size: 14px; }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-bottom: 55px;
+    }
+    .info-card {
+      text-align: left;
+      min-height: 220px;
+    }
+    .about-row { display: flex; align-items: center; gap: 18px; margin: 16px 0; }
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,#edf4ff,#d5e7ff);
+      display: grid;
+      place-items: center;
+      font-size: 38px;
+      flex: none;
+    }
+    .mail {
+      color: var(--blue);
+      font-size: 22px;
+      font-weight: 900;
+      word-break: break-word;
+    }
+    .privacy-btn {
+      width: 100%;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 12px;
+      padding: 14px;
+      display: inline-block;
+      text-align: center;
+      font-weight: 800;
+      margin-top: 20px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #fff;
+      padding: 18px 0;
+    }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #69758a; font-size: 14px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 900; color: var(--blue-dark); }
+    .footer-logo { width: 32px; height: 32px; border-radius: 9px; font-size: 16px; }
+
+    @media (max-width: 900px) {
+      .menu { display: none; }
+      .hero-grid { grid-template-columns: 1fr; padding-top: 44px; }
+      .hero-art { height: 430px; }
+      .app-grid, .feature-grid, .info-grid { grid-template-columns: 1fr 1fr; }
+      .feature:nth-child(2) { border-right: 0; }
+    }
+
+    @media (max-width: 580px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .brand { font-size: 23px; }
+      .nav { height: 66px; }
+      .hero h1 { font-size: 52px; }
+      .hero p { font-size: 17px; }
+      .hero-art { height: 370px; }
+      .phone { width: 205px; height: 410px; border-width: 10px; padding: 34px 14px 16px; }
+      .float { width: 58px; height: 58px; font-size: 25px; }
+      .app-grid, .feature-grid, .info-grid { grid-template-columns: 1fr; }
+      .feature { border-right: 0; border-bottom: 1px solid var(--line); }
+      .feature:last-child { border-bottom: 0; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="logo">Ai</span>
+        <span>AI Coach</span>
+      </a>
+      <nav class="menu">
+        <a href="#">Home</a>
+        <a href="#apps">Apps</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#support">Support</a>
+        <a href="#privacy">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>AI Coach</h1>
+          <h2>Learn Languages Smarter<br>with AI</h2>
+          <p>AI-powered language learning apps that help you study smarter, practice more, and achieve your goals.</p>
+          <ul class="checklist">
+            <li><span class="check">✓</span>Eiken (English)</li>
+            <li><span class="check">✓</span>TOEIC (English)</li>
+            <li><span class="check">✓</span>HSK (Chinese)</li>
+            <li><span class="check">✓</span>TOPIK (Korean)</li>
+          </ul>
+          <p>Start your learning journey today with AI Coach.</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="blob"></div>
+          <div class="float one">🎧</div>
+          <div class="float two">▮▮▮</div>
+          <div class="float three">💬</div>
+          <div class="phone">
+            <h3>Good morning! 👋</h3>
+            <small>Let’s study something new today.</small>
+            <div class="phone-card">
+              <small>Today’s Practice</small>
+              <b>TOEIC Part 5</b>
+              <small>10 Questions</small>
+              <div class="phone-button">Start Practice</div>
+            </div>
+            <div class="phone-card">
+              <b style="font-size:15px;">Study Progress</b>
+              <small>This Week</small>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+                <div class="bar" style="width:145px;"><span></span></div>
+                <b style="font-size:16px;margin:0;">85%</b>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-top:18px;font-size:12px;color:#11182a;">
+                <span><b style="font-size:15px;">12</b><br>Days</span>
+                <span><b style="font-size:15px;">256</b><br>Solved</span>
+                <span><b style="font-size:15px;">78%</b><br>Accuracy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apps" id="apps">
+      <div class="container">
+        <h2 class="section-title">Our Apps</h2>
+        <div class="app-grid">
+          <article class="card">
+            <div class="app-icon toeic">TOEIC<br>📖</div>
+            <h3>TOEIC AI Coach</h3>
+            <p>AI-powered TOEIC practice for Part 5, 6, and 7.</p>
+            <a class="store-btn" href="https://apps.apple.com/jp/app/toeic-ai-coach/id6786276881" target="_blank" rel="noopener">
+              <span>Download on the<br><b>App Store</b></span>
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="app-icon eiken">🐱</div>
+            <h3>Eiken AI Coach</h3>
+            <p>AI-powered Eiken preparation from Grade 4 to Grade 1.</p>
+            <span class="coming">Coming Soon</span>
+          </article>
+
+          <article class="card">
+            <div class="app-icon hsk">HSK<br>🏮</div>
+            <h3>HSK AI Coach</h3>
+            <p>AI-powered Chinese learning from HSK Level 1 and up.</p>
+            <span class="coming">Coming Soon</span>
+          </article>
+
+          <article class="card">
+            <div class="app-icon topik">TOPIK<br>🏯</div>
+            <h3>TOPIK AI Coach</h3>
+            <p>AI-powered Korean learning from TOPIK I and up.</p>
+            <span class="coming">Coming Soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Features</h2>
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="icon">🤖</div>
+            <h3>AI Generated Questions</h3>
+            <p>Get unlimited, personalized practice questions generated by AI.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🎧</div>
+            <h3>Listening Practice</h3>
+            <p>Improve your listening skills with AI-powered audio content.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">📊</div>
+            <h3>Track Progress</h3>
+            <p>Monitor your study progress with detailed statistics and history.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🌐</div>
+            <h3>Multi-Language Support</h3>
+            <p>Learn in multiple languages with a clean and easy-to-use interface.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container info-grid">
+      <article class="card info-card" id="about">
+        <h3>About</h3>
+        <div class="about-row">
+          <div class="avatar">👤</div>
+          <div>
+            <h3 style="margin:0;">Jeff Li</h3>
+            <p style="margin:0;min-height:auto;">Developer</p>
+          </div>
+        </div>
+        <p>Passionate about education and technology. I build AI-powered learning apps to help learners around the world achieve their goals.</p>
+      </article>
+
+      <article class="card info-card" id="support">
+        <h3>Support</h3>
+        <p>Have a question or need help? We're here for you.</p>
+        <p><a class="mail" href="mailto:support@dxaic.com">support@dxaic.com</a></p>
+        <p>We typically respond within 48 hours.</p>
+      </article>
+
+      <article class="card info-card" id="privacy">
+        <h3>Privacy Policy</h3>
+        <p>We take your privacy seriously. Read our Privacy Policy to learn more.</p>
+        <a class="privacy-btn" href="https://lizidong.github.io/toeicaicoach-privacy.html">View Privacy Policy</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand"><span class="logo footer-logo">Ai</span> AI Coach</div>
+      <div>© 2026 Jeff Li. All rights reserved.</div>
+      <div>Home · Apps · Features · About · Support · Privacy Policy</div>
+    </div>
+  </footer>
+</body>
+</html>
