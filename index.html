@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Coach | Learn Languages Smarter with AI</title>
-  <meta name="description" content="AI-powered language learning apps by Jeff Li. TOEIC AI Coach, 英検AIコーチ, Chinese AI Coach, and Japanese AI Coach are available on the App Store. TOPIK AI Coach is coming soon." />
+  <meta name="description" content="AI-powered exam practice apps by Jeff Li for TOEIC, Eiken, HSK, JLPT, and TOPIK learners. Practice questions, listening audio, review tools, and progress tracking on iPhone and iPad." />
   <style>
     :root {
       --blue: #0b6bff;
@@ -198,6 +198,11 @@
       padding: 30px 22px;
       text-align: center;
     }
+    .app-grid .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .app-icon {
       width: 112px;
       height: 112px;
@@ -221,6 +226,7 @@
     .topik { background: linear-gradient(135deg, #8740e8, #3e1c89); }
     .card h3 { margin: 0 0 10px; color: var(--blue-dark); font-size: 22px; }
     .card p { margin: 0; color: #34405a; font-size: 15px; min-height: 48px; }
+    .app-grid .card p { min-height: 96px; }
 
     .store-btn, .coming {
       margin-top: 22px;
@@ -233,6 +239,7 @@
       font-weight: 800;
     }
     .store-btn { background: #050505; color: #fff; gap: 8px; }
+    .app-grid .store-btn, .app-grid .coming { margin-top: auto; }
     .store-btn span { font-size: 12px; line-height: 1.05; text-align: left; }
     .store-btn b { font-size: 19px; display: block; }
     .coming { background: #eef6ff; color: var(--blue); }
@@ -362,7 +369,7 @@
         <div>
           <h1>AI Coach</h1>
           <h2>Learn Languages Smarter<br>with AI</h2>
-          <p>AI-powered language learning apps that help you study smarter, practice more, and achieve your goals.</p>
+          <p>Focused exam practice apps for TOEIC, Eiken, HSK, JLPT, and TOPIK learners.</p>
           <ul class="checklist">
             <li><span class="check">✓</span>Eiken (English)</li>
             <li><span class="check">✓</span>TOEIC (English)</li>
@@ -370,7 +377,7 @@
             <li><span class="check">✓</span>JLPT (Japanese)</li>
             <li><span class="check">✓</span>TOPIK (Korean)</li>
           </ul>
-          <p>Start your learning journey today with AI Coach.</p>
+          <p>Practice at your own pace with questions, listening audio, explanations, and progress tracking.</p>
         </div>
 
         <div class="hero-art" aria-hidden="true">
@@ -412,7 +419,7 @@
           <article class="card">
             <img class="app-icon store-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f4/0c/1a/f40c1ae5-5c75-2667-9d2a-fc6bb4328d9f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="TOEIC AI Coach app icon" width="112" height="112">
             <h3>TOEIC AI Coach</h3>
-            <p>AI-powered TOEIC practice for Part 5, 6, and 7.</p>
+            <p>Practice TOEIC Reading with AI-generated Part 5, 6, and 7 questions.</p>
             <a class="store-btn" href="https://apps.apple.com/jp/app/toeic-ai-coach/id6786276881" target="_blank" rel="noopener">
               <span>Download on the<br><b>App Store</b></span>
             </a>
@@ -421,7 +428,7 @@
           <article class="card">
             <img class="app-icon store-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/8d/a2/848da299-280a-32d2-d0ec-28998ff4dcd8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="英検AIコーチ app icon" width="112" height="112">
             <h3>英検AIコーチ</h3>
-            <p>AI-powered Eiken preparation for Grades 4, 3, Pre-2, and Pre-1.</p>
+            <p>Prepare for Eiken with grade-based practice and clear AI explanations.</p>
             <a class="store-btn" href="https://apps.apple.com/jp/app/%E8%8B%B1%E6%A4%9Cai%E3%82%B3%E3%83%BC%E3%83%81/id6785934881" target="_blank" rel="noopener">
               <span>Download on the<br><b>App Store</b></span>
             </a>
@@ -430,7 +437,7 @@
           <article class="card">
             <img class="app-icon store-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/a8/31/dea83126-ced3-145a-b7f5-4232de5f859c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Chinese AI Coach app icon" width="112" height="112">
             <h3>Chinese AI Coach</h3>
-            <p>HSK 1 listening and reading practice with audio, pinyin, and smart review.</p>
+            <p>Build HSK vocabulary, reading, and listening skills with pinyin and audio.</p>
             <a class="store-btn" href="https://apps.apple.com/jp/app/chinese-ai-coach/id6789012328" target="_blank" rel="noopener">
               <span>Download on the<br><b>App Store</b></span>
             </a>
@@ -439,7 +446,7 @@
           <article class="card">
             <img class="app-icon store-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b9/1e/56/b91e56b3-418f-c572-8664-c3ca8827b902/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Japanese AI Coach app icon" width="112" height="112">
             <h3>Japanese AI Coach</h3>
-            <p>Offline-first JLPT N1/N2 practice for vocabulary, grammar, reading, and listening.</p>
+            <p>Prepare for JLPT N1/N2 with offline vocabulary, grammar, reading, and listening practice.</p>
             <a class="store-btn" href="https://apps.apple.com/jp/app/japanese-ai-coach/id6794806749" target="_blank" rel="noopener">
               <span>Download on the<br><b>App Store</b></span>
             </a>
@@ -448,7 +455,7 @@
           <article class="card">
             <div class="app-icon topik">TOPIK<br>🏯</div>
             <h3>TOPIK AI Coach</h3>
-            <p>AI-powered Korean learning from TOPIK I and up.</p>
+            <p>Korean exam practice for TOPIK learners is coming soon.</p>
             <span class="coming">Coming Soon</span>
           </article>
         </div>
@@ -474,23 +481,23 @@
         <div class="feature-grid">
           <div class="feature">
             <div class="icon">🤖</div>
-            <h3>AI Generated Questions</h3>
-            <p>Get unlimited, personalized practice questions generated by AI.</p>
+            <h3>Exam-Focused Practice</h3>
+            <p>Study with questions designed around real language test formats.</p>
           </div>
           <div class="feature">
             <div class="icon">🎧</div>
-            <h3>Listening Practice</h3>
-            <p>Improve your listening skills with AI-powered audio content.</p>
+            <h3>Listening & Audio</h3>
+            <p>Train your ear with listening exercises and review-friendly audio.</p>
           </div>
           <div class="feature">
             <div class="icon">📊</div>
-            <h3>Track Progress</h3>
-            <p>Monitor your study progress with detailed statistics and history.</p>
+            <h3>Review & Progress</h3>
+            <p>Track results, revisit weak questions, and keep study history organized.</p>
           </div>
           <div class="feature">
             <div class="icon">🌐</div>
-            <h3>Multi-Language Support</h3>
-            <p>Learn in multiple languages with a clean and easy-to-use interface.</p>
+            <h3>Simple Study Flow</h3>
+            <p>Open the app, choose a level or category, practice, and review.</p>
           </div>
         </div>
       </div>
@@ -506,7 +513,7 @@
             <p style="margin:0;min-height:auto;">Developer</p>
           </div>
         </div>
-        <p>Passionate about education and technology. I build AI-powered learning apps to help learners around the world achieve their goals.</p>
+        <p>Passionate about education and technology. I build focused AI study tools that help learners practice consistently and understand their mistakes.</p>
       </article>
 
       <article class="card info-card" id="support">
