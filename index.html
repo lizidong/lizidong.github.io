@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Coach | Learn Languages Smarter with AI</title>
-  <meta name="description" content="AI-powered language learning apps by Jeff Li. TOEIC AI Coach, 英検AIコーチ, and Chinese AI Coach are available on the App Store. TOPIK AI Coach is coming soon." />
+  <meta name="description" content="AI-powered language learning apps by Jeff Li. TOEIC AI Coach, 英検AIコーチ, Chinese AI Coach, and Japanese AI Coach are available on the App Store. TOPIK AI Coach is coming soon." />
   <style>
     :root {
       --blue: #0b6bff;
@@ -187,7 +187,7 @@
     }
     .app-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
     .card {
@@ -292,6 +292,17 @@
       font-weight: 800;
       margin-top: 20px;
     }
+    .privacy-links {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .privacy-links a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
     footer {
       border-top: 1px solid var(--line);
@@ -356,6 +367,7 @@
             <li><span class="check">✓</span>Eiken (English)</li>
             <li><span class="check">✓</span>TOEIC (English)</li>
             <li><span class="check">✓</span>HSK (Chinese)</li>
+            <li><span class="check">✓</span>JLPT (Japanese)</li>
             <li><span class="check">✓</span>TOPIK (Korean)</li>
           </ul>
           <p>Start your learning journey today with AI Coach.</p>
@@ -420,6 +432,15 @@
             <h3>Chinese AI Coach</h3>
             <p>HSK 1 listening and reading practice with audio, pinyin, and smart review.</p>
             <a class="store-btn" href="https://apps.apple.com/jp/app/chinese-ai-coach/id6789012328" target="_blank" rel="noopener">
+              <span>Download on the<br><b>App Store</b></span>
+            </a>
+          </article>
+
+          <article class="card">
+            <img class="app-icon store-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b9/1e/56/b91e56b3-418f-c572-8664-c3ca8827b902/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Japanese AI Coach app icon" width="112" height="112">
+            <h3>Japanese AI Coach</h3>
+            <p>Offline-first JLPT N1/N2 practice for vocabulary, grammar, reading, and listening.</p>
+            <a class="store-btn" href="https://apps.apple.com/jp/app/japanese-ai-coach/id6794806749" target="_blank" rel="noopener">
               <span>Download on the<br><b>App Store</b></span>
             </a>
           </article>
@@ -497,8 +518,13 @@
 
       <article class="card info-card" id="privacy">
         <h3>Privacy Policy</h3>
-        <p>We take your privacy seriously. Read our Privacy Policy to learn more.</p>
-        <a class="privacy-btn" href="https://lizidong.github.io/toeicaicoach-privacy.html">View Privacy Policy</a>
+        <p>We take your privacy seriously. Read each app's Privacy Policy to learn more.</p>
+        <div class="privacy-links">
+          <a href="https://lizidong.github.io/toeicaicoach-privacy.html">TOEIC AI Coach</a>
+          <a href="https://lizidong.github.io/eikenaicoach-privacy.html">英検AIコーチ</a>
+          <a href="https://lizidong.github.io/chineseaicoach-privacy.html">Chinese AI Coach</a>
+          <a href="https://lizidong.github.io/japaneseaicoach-privacy.html">Japanese AI Coach</a>
+        </div>
       </article>
     </section>
   </main>
