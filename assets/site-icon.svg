@@ -1,6 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AI Coach">
-  <rect x="10" y="10" width="92" height="92" rx="30" fill="#142752"/>
-  <rect x="27" y="27" width="92" height="92" rx="30" fill="#f26b4f"/>
-  <rect x="10" y="10" width="92" height="92" rx="30" fill="#142752"/>
-  <text x="56" y="76" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="34" font-weight="800">AI</text>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="8" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27d7c5"/><stop offset="1" stop-color="#1977e8"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#0b3d79" flood-opacity=".25"/></filter>
+  </defs>
+  <rect x="9" y="9" width="110" height="110" rx="34" fill="url(#bg)" filter="url(#shadow)"/>
+  <circle cx="97" cy="30" r="13" fill="#ffd34e"/>
+  <path d="M97 20v20M87 30h20" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <rect x="21" y="28" width="86" height="70" rx="22" fill="#102956"/>
+  <text x="64" y="73" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="35" font-weight="800" letter-spacing="-2">AI</text>
+  <path d="M35 105h52" stroke="#ffd34e" stroke-width="6" stroke-linecap="round"/>
 </svg>
