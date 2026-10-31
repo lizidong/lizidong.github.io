@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AI Coach">
+  <rect x="10" y="10" width="92" height="92" rx="30" fill="#142752"/>
+  <rect x="27" y="27" width="92" height="92" rx="30" fill="#f26b4f"/>
+  <rect x="10" y="10" width="92" height="92" rx="30" fill="#142752"/>
+  <text x="56" y="76" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="34" font-weight="800">AI</text>
+</svg>
